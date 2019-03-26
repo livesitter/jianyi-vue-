@@ -1,7 +1,9 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <b>{{food}}</b>
+    <img alt="Vue logo" src="../assets/image/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button @click="goPrev">返回上一页</button>
   </div>
 </template>
 
@@ -11,8 +13,19 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'home',
+  props: {
+    food: {
+      type: String,
+      default: 'apple'
+    }
+  },
   components: {
     HelloWorld
+  },
+  methods: {
+    goPrev(){
+      this.$router.back()
+    }
   }
 }
 </script>
