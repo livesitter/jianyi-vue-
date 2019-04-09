@@ -10,12 +10,5 @@ module.exports = {
         "libraryDirectory": "src/components"
       }
     ],
-    [
-      "import",
-      {
-        "libraryName": "iview",
-        "libraryDirectory": "src/components"
-      }
-    ]
   ]
 }

@@ -20,8 +20,5 @@ module.exports = {
   },
   // 打包时不生成.map文件
   productionSourceMap: false,
-  // 跨域代理
-  devServer: {
-    proxy: 'http://localhoist:4000'
-  }
+
 }

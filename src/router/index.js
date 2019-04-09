@@ -4,27 +4,28 @@ import routes from './router'
 
 Vue.use(Router)
 
-
 const router = new Router({
-  mode: 'history',
-  routes
+    mode: 'history', routes,
+    scrollBehavior (to, from, savedPosition) {     return { x: 0, y: 0 }   }
 })
-
 
 //　变量表示是否已登录
 const HAS_LOGINED = true;
 
 // 全局拦截
-router.beforeEach((to,from,next)=>{
-  if(to.name !== 'login'){
-    if(HAS_LOGINED) next()
-    else next({ name: 'login' })
-  }
-  else{
-    if(HAS_LOGINED) next({ name: 'home' })
-    else next()
-  }
-
+router.beforeEach((to, from, next) => {
+    if (to.name !== 'login') {
+        if (HAS_LOGINED)
+            next()
+        else
+            next({name: 'login'})
+    } else {
+        if (HAS_LOGINED)
+            next({name: 'home'})
+        else
+            next()
+    }
 })
+
 
 export default router

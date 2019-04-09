@@ -1,36 +1,47 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <div>
-      <p>
-        If iView is successfully added to this project, you'll see an
-        <code v-text="'<Button>'"></code>
-        below
-      </p>
-      <Button type="primary">Button</Button>
+    <div id="app">
+        <router-view></router-view>
     </div>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+    name: "app",
+    components: {},
+    created() {
+        // 判断手机端还是PC端
+        let array = ['Win32','Win64','Mac'];
+        if (array.indexOf(navigator.platform) == -1) {
+            this.$router.replace('/tips');
+        }
+    }
+};
 </script>
 
 <style>
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    font-family: "Helvitica Neue", Helvitica, Arial, "Hiragino Sans GB",
+        "Microsoft YaHei", "Arial Regular", "Microsoft JhengHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    height: 100%;
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
 }
 </style>
